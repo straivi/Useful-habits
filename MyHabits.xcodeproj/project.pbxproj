@@ -17,7 +17,10 @@
 		BA461C4C25DE5D5500103AF0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA461C4B25DE5D5500103AF0 /* InfoViewController.swift */; };
 		BA94779D25E0824000A9874D /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94779C25E0824000A9874D /* AppImage.swift */; };
 		BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477A025E0832D00A9874D /* HabitCreatorViewController.swift */; };
-		BA9477A525E0885300A9874D /* NameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477A425E0885300A9874D /* NameTextFieldView.swift */; };
+		BA9477A525E0885300A9874D /* HabitNameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477A425E0885300A9874D /* HabitNameFieldView.swift */; };
+		BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */; };
+		BA9477B125E121BC00A9874D /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B025E121BC00A9874D /* AppColor.swift */; };
+		BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B325E1276600A9874D /* HabitTimePickerView.swift */; };
 		BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241525DC5F170081D188 /* MainTabBarController.swift */; };
 		BAFD241925DC64FF0081D188 /* HabitsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */; };
 		BAFD241C25DC65890081D188 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241B25DC65890081D188 /* HabitsViewController.swift */; };
@@ -36,7 +39,10 @@
 		BA461C4B25DE5D5500103AF0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		BA94779C25E0824000A9874D /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		BA9477A025E0832D00A9874D /* HabitCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreatorViewController.swift; sourceTree = "<group>"; };
-		BA9477A425E0885300A9874D /* NameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextFieldView.swift; sourceTree = "<group>"; };
+		BA9477A425E0885300A9874D /* HabitNameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitNameFieldView.swift; sourceTree = "<group>"; };
+		BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitColorPickerView.swift; sourceTree = "<group>"; };
+		BA9477B025E121BC00A9874D /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		BA9477B325E1276600A9874D /* HabitTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTimePickerView.swift; sourceTree = "<group>"; };
 		BAFD241525DC5F170081D188 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HabitsNavigationController.swift; path = MyHabits/HabitsViewController/HabitsNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		BAFD241B25DC65890081D188 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 				BA2A3EBD25D20288001B5408 /* SceneDelegate.swift */,
 				BA2A3ED125D2712C001B5408 /* HabitsStore.swift */,
 				BA94779C25E0824000A9874D /* AppImage.swift */,
+				BA9477B025E121BC00A9874D /* AppColor.swift */,
 				BA3EA97D25DB00C00067A111 /* RootViewController.swift */,
 				BAFD241525DC5F170081D188 /* MainTabBarController.swift */,
 				BA461C4F25DE5D8200103AF0 /* HabitsViewController */,
@@ -118,7 +125,9 @@
 		BA9477A325E0876B00A9874D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BA9477A425E0885300A9874D /* NameTextFieldView.swift */,
+				BA9477A425E0885300A9874D /* HabitNameFieldView.swift */,
+				BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */,
+				BA9477B325E1276600A9874D /* HabitTimePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,11 +204,14 @@
 				BA2A3ED225D2712C001B5408 /* HabitsStore.swift in Sources */,
 				BA461C4925DE5D3B00103AF0 /* InfoNavigationController.swift in Sources */,
 				BAFD241925DC64FF0081D188 /* HabitsNavigationController.swift in Sources */,
-				BA9477A525E0885300A9874D /* NameTextFieldView.swift in Sources */,
+				BA9477B125E121BC00A9874D /* AppColor.swift in Sources */,
+				BA9477A525E0885300A9874D /* HabitNameFieldView.swift in Sources */,
 				BAFD241C25DC65890081D188 /* HabitsViewController.swift in Sources */,
 				BA461C4C25DE5D5500103AF0 /* InfoViewController.swift in Sources */,
 				BA2A3EBC25D20288001B5408 /* AppDelegate.swift in Sources */,
+				BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */,
 				BA3EA97E25DB00C00067A111 /* RootViewController.swift in Sources */,
+				BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */,
 				BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */,
 				BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */,
 				BA2A3EBE25D20288001B5408 /* SceneDelegate.swift in Sources */,
@@ -272,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -327,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N36M22CA6;
 				INFOPLIST_FILE = MyHabits/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -365,7 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N36M22CA6;
 				INFOPLIST_FILE = MyHabits/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

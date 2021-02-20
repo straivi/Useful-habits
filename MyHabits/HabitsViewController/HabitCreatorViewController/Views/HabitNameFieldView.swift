@@ -1,5 +1,5 @@
 //
-//  NameTextFieldView.swift
+//  HabitNameFieldView.swift
 //  MyHabits
 //
 //  Created by  Matvey on 20.02.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NameTextFieldView: UIView {
+class HabitNameFieldView: UIView {
     
     weak var delegate: UITextFieldDelegate? {
         didSet {
