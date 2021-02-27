@@ -41,6 +41,7 @@ class HabitCreatorViewController: UIViewController {
         
         NSLayoutConstraint.activate(stackViewConstraints)
         
+        nameView.delegate = self
         colorView.delegate = self
     }
     
@@ -53,7 +54,10 @@ class HabitCreatorViewController: UIViewController {
     }
     
     @objc private func saveHabit() {
-        print("create habit")
+        print("save habit")
+        let habit = Habit(name: nameView.name, date: Date(), color: colorView.selectedColor ?? .purple)
+        print(habit.name, habit.date, habit.color)
+        HabitsStore.shared.habits.append(habit)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -66,5 +70,15 @@ class HabitCreatorViewController: UIViewController {
 extension HabitCreatorViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         colorView.selectedColor = viewController.selectedColor
+    }
+}
+
+extension HabitCreatorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

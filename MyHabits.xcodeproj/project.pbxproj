@@ -21,6 +21,7 @@
 		BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */; };
 		BA9477B125E121BC00A9874D /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B025E121BC00A9874D /* AppColor.swift */; };
 		BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B325E1276600A9874D /* HabitTimePickerView.swift */; };
+		BA9477B825E1CE6800A9874D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B725E1CE6800A9874D /* ProgressView.swift */; };
 		BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241525DC5F170081D188 /* MainTabBarController.swift */; };
 		BAFD241925DC64FF0081D188 /* HabitsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */; };
 		BAFD241C25DC65890081D188 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241B25DC65890081D188 /* HabitsViewController.swift */; };
@@ -43,6 +44,7 @@
 		BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitColorPickerView.swift; sourceTree = "<group>"; };
 		BA9477B025E121BC00A9874D /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BA9477B325E1276600A9874D /* HabitTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTimePickerView.swift; sourceTree = "<group>"; };
+		BA9477B725E1CE6800A9874D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		BAFD241525DC5F170081D188 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HabitsNavigationController.swift; path = MyHabits/HabitsViewController/HabitsNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		BAFD241B25DC65890081D188 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				BA94779F25E0830500A9874D /* HabitCreatorViewController */,
 				BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */,
 				BAFD241B25DC65890081D188 /* HabitsViewController.swift */,
+				BA9477B625E1CE4500A9874D /* Views */,
 			);
 			path = HabitsViewController;
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				BA9477A425E0885300A9874D /* HabitNameFieldView.swift */,
 				BA9477AA25E11F9300A9874D /* HabitColorPickerView.swift */,
 				BA9477B325E1276600A9874D /* HabitTimePickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA9477B625E1CE4500A9874D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA9477B725E1CE6800A9874D /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +225,7 @@
 				BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */,
 				BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */,
 				BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */,
+				BA9477B825E1CE6800A9874D /* ProgressView.swift in Sources */,
 				BA2A3EBE25D20288001B5408 /* SceneDelegate.swift in Sources */,
 				BA94779D25E0824000A9874D /* AppImage.swift in Sources */,
 			);

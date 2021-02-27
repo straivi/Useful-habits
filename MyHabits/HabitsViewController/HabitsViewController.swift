@@ -33,10 +33,22 @@ class HabitsViewController: UIViewController {
 
     
     private func setupViews() {
-        view.backgroundColor = .yellow
+        title = "Сегодня"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = AppColor.systemBackground
+        let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = .white
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        addChild(tableView)
-        view.addSubview(tableView.view)
-        tableView.didMove(toParent: self)
+        let progressView = ProgressView()
+        view.addSubview(progressView)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 22),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ]
+        NSLayoutConstraint.activate(constraints)
+        
     }
 }

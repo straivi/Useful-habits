@@ -15,6 +15,14 @@ class HabitNameFieldView: UIView {
         }
     }
     
+    var name: String {
+        get {
+            guard let name = nameTextField.text,
+                  name != "" else { return "Новая привычка" }
+            return name
+        }
+    }
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)

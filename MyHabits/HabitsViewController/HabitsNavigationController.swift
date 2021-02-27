@@ -22,6 +22,7 @@ class HabitsNavigationController: UIViewController {
         addChild(navCV)
         view.addSubview(navCV.view)
         
+        
         navCV.setViewControllers([habitsViewController], animated: false)
     }
 }
