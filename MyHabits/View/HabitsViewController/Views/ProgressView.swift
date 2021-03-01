@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgressView: UIView {
+class ProgressView: UICollectionReusableView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -27,7 +27,6 @@ class ProgressView: UIView {
     
     private let progressBar: UIProgressView = {
         let view = UIProgressView(progressViewStyle: .bar)
-        view.progress = 0.5
         view.layer.cornerRadius = 4
         view.clipsToBounds = true
         if let subleyer = view.layer.sublayers?[1] {
@@ -38,15 +37,15 @@ class ProgressView: UIView {
         return view
     }()
     
-    var percent: Int = 0 {
+    var percent: Float = 0 {
         didSet {
             percentLabel.text = "\(percent)%"
             progressBar.progress = Float(percent) / 100
         }
     }
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
     }
     

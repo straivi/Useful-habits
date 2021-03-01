@@ -78,4 +78,9 @@ class HabitColorPickerView: UIView {
         guard let vc = delegate as? UIViewController else { return }
         vc.present(colorPicker, animated: true)
     }
+    
+    func clear() {
+        colorPicker.selectedColor = AppColor.accentColor ?? .purple
+        selectedColor = AppColor.accentColor
+    }
 }

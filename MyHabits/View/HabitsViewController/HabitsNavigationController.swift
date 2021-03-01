@@ -15,14 +15,17 @@ class HabitsNavigationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
+        habitsViewController.title = "Сегодня"
+        navCV.navigationBar.prefersLargeTitles = true
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        navCV.navigationBar.scrollEdgeAppearance = appearance
     }
     
         
     private func setupController() {
         addChild(navCV)
         view.addSubview(navCV.view)
-        
-        
         navCV.setViewControllers([habitsViewController], animated: false)
     }
 }

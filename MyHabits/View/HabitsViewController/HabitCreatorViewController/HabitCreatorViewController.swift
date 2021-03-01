@@ -58,12 +58,20 @@ class HabitCreatorViewController: UIViewController {
         let habit = Habit(name: nameView.name, date: Date(), color: colorView.selectedColor ?? .purple)
         print(habit.name, habit.date, habit.color)
         HabitsStore.shared.habits.append(habit)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.nameView.clear()
+            self.colorView.clear()
+            self.dateView.clear()
+        }
     }
     
     @objc private func cancel() {
         print("cancel habit")
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.nameView.clear()
+            self.colorView.clear()
+            self.dateView.clear()
+        }
     }
 }
 

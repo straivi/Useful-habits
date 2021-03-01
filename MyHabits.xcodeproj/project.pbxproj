@@ -22,7 +22,8 @@
 		BA9477B125E121BC00A9874D /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B025E121BC00A9874D /* AppColor.swift */; };
 		BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B325E1276600A9874D /* HabitTimePickerView.swift */; };
 		BA9477B825E1CE6800A9874D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477B725E1CE6800A9874D /* ProgressView.swift */; };
-		BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241525DC5F170081D188 /* MainTabBarController.swift */; };
+		BAD2412B25EAE84600F2D0D7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241525DC5F170081D188 /* MainTabBarController.swift */; };
+		BAE9CBD225EC423900D1C6BF /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9CBD125EC423900D1C6BF /* HabitCollectionViewCell.swift */; };
 		BAFD241925DC64FF0081D188 /* HabitsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */; };
 		BAFD241C25DC65890081D188 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD241B25DC65890081D188 /* HabitsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,8 +46,9 @@
 		BA9477B025E121BC00A9874D /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BA9477B325E1276600A9874D /* HabitTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTimePickerView.swift; sourceTree = "<group>"; };
 		BA9477B725E1CE6800A9874D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		BAE9CBD125EC423900D1C6BF /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAFD241525DC5F170081D188 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HabitsNavigationController.swift; path = MyHabits/HabitsViewController/HabitsNavigationController.swift; sourceTree = SOURCE_ROOT; };
+		BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsNavigationController.swift; sourceTree = "<group>"; };
 		BAFD241B25DC65890081D188 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,15 +82,13 @@
 		BA2A3EBA25D20288001B5408 /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
+				BAD2412725EAE7D400F2D0D7 /* View */,
+				BAD2412825EAE7D900F2D0D7 /* Services */,
 				BA2A3EBB25D20288001B5408 /* AppDelegate.swift */,
 				BA2A3EBD25D20288001B5408 /* SceneDelegate.swift */,
-				BA2A3ED125D2712C001B5408 /* HabitsStore.swift */,
 				BA94779C25E0824000A9874D /* AppImage.swift */,
 				BA9477B025E121BC00A9874D /* AppColor.swift */,
 				BA3EA97D25DB00C00067A111 /* RootViewController.swift */,
-				BAFD241525DC5F170081D188 /* MainTabBarController.swift */,
-				BA461C4F25DE5D8200103AF0 /* HabitsViewController */,
-				BA461C4E25DE5D6C00103AF0 /* InfoViewController */,
 				BA2A3EC425D2028B001B5408 /* Assets.xcassets */,
 				BA2A3EC625D2028B001B5408 /* LaunchScreen.storyboard */,
 				BA2A3EC925D2028B001B5408 /* Info.plist */,
@@ -139,8 +139,27 @@
 			isa = PBXGroup;
 			children = (
 				BA9477B725E1CE6800A9874D /* ProgressView.swift */,
+				BAE9CBD125EC423900D1C6BF /* HabitCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BAD2412725EAE7D400F2D0D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD241525DC5F170081D188 /* MainTabBarController.swift */,
+				BA461C4F25DE5D8200103AF0 /* HabitsViewController */,
+				BA461C4E25DE5D6C00103AF0 /* InfoViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAD2412825EAE7D900F2D0D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA2A3ED125D2712C001B5408 /* HabitsStore.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +241,13 @@
 				BA2A3EBC25D20288001B5408 /* AppDelegate.swift in Sources */,
 				BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */,
 				BA3EA97E25DB00C00067A111 /* RootViewController.swift in Sources */,
+				BAD2412B25EAE84600F2D0D7 /* MainTabBarController.swift in Sources */,
 				BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */,
 				BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */,
-				BAFD241625DC5F170081D188 /* MainTabBarController.swift in Sources */,
 				BA9477B825E1CE6800A9874D /* ProgressView.swift in Sources */,
 				BA2A3EBE25D20288001B5408 /* SceneDelegate.swift in Sources */,
 				BA94779D25E0824000A9874D /* AppImage.swift in Sources */,
+				BAE9CBD225EC423900D1C6BF /* HabitCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

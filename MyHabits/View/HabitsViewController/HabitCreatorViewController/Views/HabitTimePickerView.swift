@@ -68,4 +68,8 @@ class HabitTimePickerView: UIView {
         
         NSLayoutConstraint.activate(titleLabelConstraints + pickerContraints + textLabelConctraints)
     }
+    
+    func clear() {
+        datePicker.setDate(Date(), animated: false)
+    }
 }

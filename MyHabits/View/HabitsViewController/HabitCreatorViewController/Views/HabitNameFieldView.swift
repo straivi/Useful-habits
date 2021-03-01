@@ -68,4 +68,8 @@ class HabitNameFieldView: UIView {
         
         NSLayoutConstraint.activate(nameLabelConstraints + nameTextFieldConstraints)
     }
+    
+    func clear() {
+        nameTextField.text?.removeAll()
+    }
 }

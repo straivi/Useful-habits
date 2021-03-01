@@ -19,7 +19,7 @@ class MainTabBarController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         
         addChild(tabBar)
         view.addSubview(tabBar.view)
