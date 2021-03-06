@@ -108,7 +108,6 @@
 		BA461C4F25DE5D8200103AF0 /* HabitsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BA94779F25E0830500A9874D /* HabitCreatorViewController */,
 				BAFD241825DC64FF0081D188 /* HabitsNavigationController.swift */,
 				BAFD241B25DC65890081D188 /* HabitsViewController.swift */,
 				BA9477B625E1CE4500A9874D /* Views */,
@@ -148,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				BAFD241525DC5F170081D188 /* MainTabBarController.swift */,
+				BA94779F25E0830500A9874D /* HabitCreatorViewController */,
 				BA461C4F25DE5D8200103AF0 /* HabitsViewController */,
 				BA461C4E25DE5D6C00103AF0 /* InfoViewController */,
 			);

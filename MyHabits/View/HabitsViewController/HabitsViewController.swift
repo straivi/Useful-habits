@@ -35,6 +35,7 @@ class HabitsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(ProgressView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: ProgressView.self))
         collectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: HabitCollectionViewCell.self))
+        habitCreatorViewController.delegate = self
     }
     
     private func setupBarButtonItems() {
@@ -44,7 +45,8 @@ class HabitsViewController: UIViewController {
                                                             action: #selector(createHabit))
     }
     
-    @objc private func createHabit() {
+    @objc
+    private func createHabit() {
         print("create habbit")
         let creatorNavigation = UINavigationController(rootViewController: habitCreatorViewController)
         present(creatorNavigation, animated: true)
@@ -112,4 +114,11 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: availableWidth, height: 130)
     }
     
+}
+
+//MARK: HabitCreatorViewControllerDelegate
+extension HabitsViewController: HabitCreatorViewControllerDelegate {
+    func didCreateHabit() {
+        collectionView.reloadData()
+    }
 }

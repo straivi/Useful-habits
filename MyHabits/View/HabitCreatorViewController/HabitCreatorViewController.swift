@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol HabitCreatorViewControllerDelegate: class {
+    func didCreateHabit()
+}
+
 class HabitCreatorViewController: UIViewController {
     
     private let nameView = HabitNameFieldView()
     private let colorView = HabitColorPickerView()
     private let dateView = HabitTimePickerView()
+    
+    weak var delegate: HabitCreatorViewControllerDelegate?
     
     override func viewDidLoad() {
         setupViews()
@@ -58,6 +64,7 @@ class HabitCreatorViewController: UIViewController {
         let habit = Habit(name: nameView.name, date: Date(), color: colorView.selectedColor ?? .purple)
         print(habit.name, habit.date, habit.color)
         HabitsStore.shared.habits.append(habit)
+        self.delegate?.didCreateHabit()
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()
