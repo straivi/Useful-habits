@@ -16,16 +16,45 @@ class HabitCreatorViewController: UIViewController {
     private let nameView = HabitNameFieldView()
     private let colorView = HabitColorPickerView()
     private let dateView = HabitTimePickerView()
+    private let deleteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Удалить привычку", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        return button
+    }()
+    
+    private let habit: Habit?
     
     weak var delegate: HabitCreatorViewControllerDelegate?
     
-    override func viewDidLoad() {
+    var onUpdate: (() -> Void)?
+    
+    init() {
+        self.habit = nil
+        super.init(nibName: nil, bundle: nil)
         setupViews()
         setupBarButtonItems()
+        title = "Создать"
+    }
+    
+    init(habit: Habit) {
+        self.habit = habit
+        super.init(nibName: nil, bundle: nil)
+        setupViews()
+        setupBarButtonItems()
+        title = "Править"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        
     }
     
     private func setupViews() {
-        title = "Создать"
+        
         view.backgroundColor = .white
         
         let stackView = UIStackView()
@@ -45,24 +74,36 @@ class HabitCreatorViewController: UIViewController {
         stackView.addArrangedSubview(colorView)
         stackView.addArrangedSubview(dateView)
         
-        NSLayoutConstraint.activate(stackViewConstraints)
+        view.addSubview(deleteButton)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        let deleteConstraints = [
+            deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ]
+        
+        NSLayoutConstraint.activate(stackViewConstraints + deleteConstraints)
         
         nameView.delegate = self
         colorView.delegate = self
+        
+        if habit == nil {
+            deleteButton.isHidden = true
+        }
     }
     
     private func setupBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Схранить",
-                                                            style: .done,
-                                                           target: self,
-                                                           action: #selector(saveHabit))
+        let saveItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveHabit))
+        if habit != nil {
+            saveItem.action = #selector(updateHabit)
+        }
+        navigationItem.rightBarButtonItem = saveItem
+        
     }
     
     @objc private func saveHabit() {
         print("save habit")
-        let habit = Habit(name: nameView.name, date: Date(), color: colorView.selectedColor ?? .purple)
-        print(habit.name, habit.date, habit.color)
+        let habit = Habit(name: nameView.name, date: dateView.datePicker.date, color: colorView.selectedColor ?? .purple)
         HabitsStore.shared.habits.append(habit)
         self.delegate?.didCreateHabit()
         self.dismiss(animated: true) {
@@ -74,6 +115,20 @@ class HabitCreatorViewController: UIViewController {
     
     @objc private func cancel() {
         print("cancel habit")
+        self.dismiss(animated: true) {
+            self.nameView.clear()
+            self.colorView.clear()
+            self.dateView.clear()
+        }
+    }
+    
+    @objc private func updateHabit() {
+        guard let habit = habit else { return }
+        habit.name = nameView.name
+        habit.color = colorView.selectedColor ?? .purple
+        habit.date = dateView.datePicker.date
+        if let onUpdate = onUpdate { onUpdate() }
+        print("habit was update")
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()

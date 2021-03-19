@@ -25,7 +25,7 @@ class HabitTimePickerView: UIView {
         return label
     }()
     
-    private let datePicker: UIDatePicker = {
+    let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
         picker.preferredDatePickerStyle = .inline

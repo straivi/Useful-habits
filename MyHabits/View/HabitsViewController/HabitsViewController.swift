@@ -20,7 +20,6 @@ class HabitsViewController: UIViewController {
         collection.contentInset = UIEdgeInsets(top: 22, left: 16, bottom: 22, right: 16)
         return collection
     }()
-    private let habitStore = HabitsStore.shared
     private let habitCreatorViewController = HabitCreatorViewController()
     
     private let itemInRow = 1
@@ -66,7 +65,13 @@ class HabitsViewController: UIViewController {
     }
     
     private func createCellModel(habit: Habit) -> HabitCellModel {
-        let cellModel = HabitCellModel(title: habit.name, timeToRepeatText: habit.dateString, dayCountsText: "Подряд: \(habit.trackDates.count)", tintColor: habit.color)
+        let closure = { [weak habit, weak self] in
+            guard let habit = habit else { return }
+            HabitsStore.shared.track(habit)
+            self?.collectionView.reloadData()
+        }
+        
+        let cellModel = HabitCellModel(title: habit.name, timeToRepeatText: habit.dateString, dayCountsText: "Подряд: \(habit.trackDates.count)", tintColor: habit.color, isAlreadyTakenToday: habit.isAlreadyTakenToday, onTake: closure)
         return cellModel
     }
 }
@@ -74,12 +79,12 @@ class HabitsViewController: UIViewController {
 //MARK: UICollectionViewDataSource
 extension HabitsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return habitStore.habits.count
+        return HabitsStore.shared.habits.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as? HabitCollectionViewCell else { return UICollectionViewCell() }
-        let habit = habitStore.habits[indexPath.row]
+        let habit = HabitsStore.shared.habits[indexPath.row]
         let model = createCellModel(habit: habit)
         cell.configure(model)
         return cell
@@ -89,8 +94,22 @@ extension HabitsViewController: UICollectionViewDataSource {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: ProgressView.self), for: indexPath) as? ProgressView else {
             return UICollectionReusableView()
         }
-        headerView.percent = habitStore.todayProgress
+        headerView.percent = HabitsStore.shared.todayProgress
         return headerView
+    }
+}
+
+//MARK: UICollectionViewDelegate
+extension HabitsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = HabitDetailsViewController(habit: HabitsStore.shared.habits[indexPath.row])
+        vc.title = HabitsStore.shared.habits[indexPath.row].name
+        let closure: (() -> Void)? = { [weak self] in
+            HabitsStore.shared.save()
+            self?.collectionView.reloadData()
+        }
+        vc.onUpdate = closure
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -113,7 +132,6 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = collectionView.frame.width - contentInset.right - CGFloat(itemInRow) * contentInset.left
         return CGSize(width: availableWidth, height: 130)
     }
-    
 }
 
 //MARK: HabitCreatorViewControllerDelegate

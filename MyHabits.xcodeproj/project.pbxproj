@@ -15,6 +15,8 @@
 		BA3EA97E25DB00C00067A111 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3EA97D25DB00C00067A111 /* RootViewController.swift */; };
 		BA461C4925DE5D3B00103AF0 /* InfoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA461C4825DE5D3B00103AF0 /* InfoNavigationController.swift */; };
 		BA461C4C25DE5D5500103AF0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA461C4B25DE5D5500103AF0 /* InfoViewController.swift */; };
+		BA5480FF25FB51250030805B /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5480FE25FB51250030805B /* HabitDetailsViewController.swift */; };
+		BA54810225FB58E70030805B /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54810125FB58E70030805B /* DateFormater.swift */; };
 		BA94779D25E0824000A9874D /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94779C25E0824000A9874D /* AppImage.swift */; };
 		BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477A025E0832D00A9874D /* HabitCreatorViewController.swift */; };
 		BA9477A525E0885300A9874D /* HabitNameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9477A425E0885300A9874D /* HabitNameFieldView.swift */; };
@@ -39,6 +41,8 @@
 		BA3EA97D25DB00C00067A111 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BA461C4825DE5D3B00103AF0 /* InfoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNavigationController.swift; sourceTree = "<group>"; };
 		BA461C4B25DE5D5500103AF0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		BA5480FE25FB51250030805B /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
+		BA54810125FB58E70030805B /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
 		BA94779C25E0824000A9874D /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		BA9477A025E0832D00A9874D /* HabitCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreatorViewController.swift; sourceTree = "<group>"; };
 		BA9477A425E0885300A9874D /* HabitNameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitNameFieldView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,14 @@
 			path = HabitsViewController;
 			sourceTree = "<group>";
 		};
+		BA5480FD25FB510F0030805B /* HabitDetails */ = {
+			isa = PBXGroup;
+			children = (
+				BA5480FE25FB51250030805B /* HabitDetailsViewController.swift */,
+			);
+			path = HabitDetails;
+			sourceTree = "<group>";
+		};
 		BA94779F25E0830500A9874D /* HabitCreatorViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +158,7 @@
 		BAD2412725EAE7D400F2D0D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BA5480FD25FB510F0030805B /* HabitDetails */,
 				BAFD241525DC5F170081D188 /* MainTabBarController.swift */,
 				BA94779F25E0830500A9874D /* HabitCreatorViewController */,
 				BA461C4F25DE5D8200103AF0 /* HabitsViewController */,
@@ -158,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2A3ED125D2712C001B5408 /* HabitsStore.swift */,
+				BA54810125FB58E70030805B /* DateFormater.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,12 +255,14 @@
 				BA2A3EBC25D20288001B5408 /* AppDelegate.swift in Sources */,
 				BA9477B425E1276600A9874D /* HabitTimePickerView.swift in Sources */,
 				BA3EA97E25DB00C00067A111 /* RootViewController.swift in Sources */,
+				BA54810225FB58E70030805B /* DateFormater.swift in Sources */,
 				BAD2412B25EAE84600F2D0D7 /* MainTabBarController.swift in Sources */,
 				BA9477AB25E11F9300A9874D /* HabitColorPickerView.swift in Sources */,
 				BA9477A125E0832D00A9874D /* HabitCreatorViewController.swift in Sources */,
 				BA9477B825E1CE6800A9874D /* ProgressView.swift in Sources */,
 				BA2A3EBE25D20288001B5408 /* SceneDelegate.swift in Sources */,
 				BA94779D25E0824000A9874D /* AppImage.swift in Sources */,
+				BA5480FF25FB51250030805B /* HabitDetailsViewController.swift in Sources */,
 				BAE9CBD225EC423900D1C6BF /* HabitCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

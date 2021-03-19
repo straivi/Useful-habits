@@ -14,6 +14,7 @@ class ProgressView: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         label.textColor = .systemGray
         label.text = "Всё получится!"
+        label.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         return label
     }()
     
@@ -22,6 +23,7 @@ class ProgressView: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         label.textColor = .systemGray
         label.text = "0%"
+        label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         return label
     }()
     
@@ -39,8 +41,8 @@ class ProgressView: UICollectionReusableView {
     
     var percent: Float = 0 {
         didSet {
-            percentLabel.text = "\(percent)%"
-            progressBar.progress = Float(percent) / 100
+            percentLabel.text = "\((percent * 100).rounded())%"
+            self.progressBar.progress = percent
         }
     }
     
@@ -56,32 +58,31 @@ class ProgressView: UICollectionReusableView {
     private func setupViews() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 8
-        self.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        self.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let titleLabelConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12)
-        ]
         
         self.addSubview(percentLabel)
         percentLabel.translatesAutoresizingMaskIntoConstraints = false
         let percentLabelConstraints = [
             percentLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            percentLabel.leadingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor),
             percentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12)
+        ]
+        
+        self.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: percentLabel.leadingAnchor),
         ]
         
         self.addSubview(progressBar)
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         let progressBarConstraints = [
             progressBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            progressBar.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            progressBar.trailingAnchor.constraint(equalTo: percentLabel.trailingAnchor),
-            progressBar.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-            progressBar.heightAnchor.constraint(equalToConstant: 7)
+            progressBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            progressBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+            progressBar.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
         ]
+        progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 3.5)
         
         NSLayoutConstraint.activate(titleLabelConstraints + percentLabelConstraints + progressBarConstraints)
     }

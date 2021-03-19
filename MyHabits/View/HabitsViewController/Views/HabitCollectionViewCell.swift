@@ -12,6 +12,8 @@ struct HabitCellModel {
     var timeToRepeatText: String
     var dayCountsText: String
     var tintColor: UIColor
+    var isAlreadyTakenToday: Bool
+    var onTake: () -> Void
 }
 
 class HabitCollectionViewCell: UICollectionViewCell {
@@ -56,9 +58,12 @@ class HabitCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    var onTake: () -> Void = {}
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -116,5 +121,26 @@ class HabitCollectionViewCell: UICollectionViewCell {
         repeatCountsTitle.text = model.dayCountsText
         titleLabel.textColor = model.tintColor
         button.tintColor = model.tintColor
+        onTake = model.onTake
+        if model.isAlreadyTakenToday {
+            button.isSelected = true
+        } else {
+            button.isSelected = false
+        }
+    }
+}
+
+//MARK: Actions
+extension HabitCollectionViewCell {
+    private func setupActions() {
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    private func buttonTapped() {
+        if !button.isSelected {
+            button.isSelected = true
+            onTake()
+        }
     }
 }
