@@ -66,7 +66,6 @@ class HabitDetailsViewController: UIViewController {
 //MARK: UITableViewDataSource
 extension HabitDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(HabitsStore.shared.dates.count)
         return HabitsStore.shared.dates.count
     }
     

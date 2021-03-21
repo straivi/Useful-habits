@@ -49,10 +49,6 @@ class HabitCreatorViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        
-    }
-    
     private func setupViews() {
         
         view.backgroundColor = .white
@@ -89,6 +85,11 @@ class HabitCreatorViewController: UIViewController {
         if habit == nil {
             deleteButton.isHidden = true
         }
+        
+        guard let habit = habit else { return }
+        nameView.name = habit.name
+        colorView.initColor = habit.color
+        dateView.datePicker.date = habit.date
     }
     
     //MARK: setup Actions
@@ -103,7 +104,6 @@ class HabitCreatorViewController: UIViewController {
     }
     
     @objc private func saveHabit() {
-        print("save habit")
         let habit = Habit(name: nameView.name, date: dateView.datePicker.date, color: colorView.selectedColor ?? .purple)
         HabitsStore.shared.habits.append(habit)
         self.delegate?.didCreateHabit()
@@ -115,7 +115,6 @@ class HabitCreatorViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        print("cancel habit")
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()
@@ -128,13 +127,12 @@ class HabitCreatorViewController: UIViewController {
         habit.name = nameView.name
         habit.color = colorView.selectedColor ?? .purple
         habit.date = dateView.datePicker.date
-        if let onUpdate = onUpdate { onUpdate() }
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()
             self.dateView.clear()
         }
-        print("habit was update")
+        if let onUpdate = onUpdate { onUpdate() }
         
     }
     
@@ -142,16 +140,10 @@ class HabitCreatorViewController: UIViewController {
         guard let habit = habit,
               let index = HabitsStore.shared.habits.firstIndex(of: habit) else { return }
         HabitsStore.shared.habits.remove(at: index)
-        
-        print("habit was deleted")
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()
             self.dateView.clear()
-//            guard let parent = self.parent?.parent?.navigationController else {
-//                print("not nav")
-//                return }
-//            parent.popToRootViewController(animated: true)
         }
         if let onUpdate = onUpdate { onUpdate() }
     }

@@ -41,7 +41,7 @@ class ProgressView: UICollectionReusableView {
     
     var percent: Float = 0 {
         didSet {
-            percentLabel.text = "\((percent * 100).rounded())%"
+            percentLabel.text = "\(Int((percent * 100).rounded()))%"
             self.progressBar.progress = percent
         }
     }

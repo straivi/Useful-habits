@@ -46,7 +46,6 @@ class HabitsViewController: UIViewController {
     
     @objc
     private func createHabit() {
-        print("create habbit")
         let creatorNavigation = UINavigationController(rootViewController: habitCreatorViewController)
         present(creatorNavigation, animated: true)
     }

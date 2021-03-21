@@ -21,6 +21,10 @@ class HabitNameFieldView: UIView {
                   name != "" else { return "Новая привычка" }
             return name
         }
+        
+        set {
+            nameTextField.text = newValue
+        }
     }
     
     private let nameLabel: UILabel = {

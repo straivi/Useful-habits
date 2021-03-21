@@ -21,6 +21,18 @@ class HabitColorPickerView: UIView {
         }
     }
     
+    var initColor: UIColor {
+        get {
+            guard let selectedColor = selectedColor else { return .purple }
+            return selectedColor
+        }
+        
+        set {
+            selectedColor = newValue
+            colorPicker.selectedColor = newValue
+        }
+    }
+    
     private let colorPicker = UIColorPickerViewController()
     
     private let titleLabel: UILabel = {
