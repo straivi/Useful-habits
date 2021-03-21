@@ -91,6 +91,7 @@ class HabitCreatorViewController: UIViewController {
         }
     }
     
+    //MARK: setup Actions
     private func setupBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancel))
         let saveItem = UIBarButtonItem(title: "Сохранить", style: .done, target: self, action: #selector(saveHabit))
@@ -98,7 +99,7 @@ class HabitCreatorViewController: UIViewController {
             saveItem.action = #selector(updateHabit)
         }
         navigationItem.rightBarButtonItem = saveItem
-        
+        deleteButton.addTarget(self, action: #selector(deleteHabit), for: .touchUpInside)
     }
     
     @objc private func saveHabit() {
@@ -128,12 +129,31 @@ class HabitCreatorViewController: UIViewController {
         habit.color = colorView.selectedColor ?? .purple
         habit.date = dateView.datePicker.date
         if let onUpdate = onUpdate { onUpdate() }
-        print("habit was update")
         self.dismiss(animated: true) {
             self.nameView.clear()
             self.colorView.clear()
             self.dateView.clear()
         }
+        print("habit was update")
+        
+    }
+    
+    @objc private func deleteHabit() {
+        guard let habit = habit,
+              let index = HabitsStore.shared.habits.firstIndex(of: habit) else { return }
+        HabitsStore.shared.habits.remove(at: index)
+        
+        print("habit was deleted")
+        self.dismiss(animated: true) {
+            self.nameView.clear()
+            self.colorView.clear()
+            self.dateView.clear()
+//            guard let parent = self.parent?.parent?.navigationController else {
+//                print("not nav")
+//                return }
+//            parent.popToRootViewController(animated: true)
+        }
+        if let onUpdate = onUpdate { onUpdate() }
     }
 }
 

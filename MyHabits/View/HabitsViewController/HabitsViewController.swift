@@ -107,6 +107,7 @@ extension HabitsViewController: UICollectionViewDelegate {
         let closure: (() -> Void)? = { [weak self] in
             HabitsStore.shared.save()
             self?.collectionView.reloadData()
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         vc.onUpdate = closure
         navigationController?.pushViewController(vc, animated: true)
